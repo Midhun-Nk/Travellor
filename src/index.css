@@ -1,0 +1,13 @@
+@import "tailwindcss";
+   
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@700;900&display=swap');
+        html { scroll-behavior: smooth; } /* Optional: smooth scrolling to sections */
+     /* Hide scrollbar for all browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
