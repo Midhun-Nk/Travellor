@@ -126,65 +126,75 @@ const Header = () => {
  const maxCtaMove = 30; // adjust as needed
 const ctaTranslateXLimited = Math.min(scrollY * ctaMoveFactorX, maxCtaMove);
   return (
-    <section className="relative h-[60vh] sm:h-[70vh] md:h-[90vh] lg:h-[100vh] flex items-center overflow-hidden">
+    // <section className="relative h-[60vh] sm:h-[70vh] md:h-[90vh] lg:h-[100vh] flex items-center overflow-hidden">
+    <section className="relative h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <img
           src={backgroundImage || "https://placehold.co/1920x1080/374151/e0e7ff?text=Your+Background+Image"}
           alt="Beautiful landscape background"
-          className="w-full object-cover object-center brightness-50 md:h-full sm:h-[80vh] h-[60vh]"
+          // className="w-full object-cover object-center brightness-50 md:h-full sm:h-[80vh] h-[60vh]"
+                className="w-full h-full object-cover object-center brightness-50"
           style={{ transform: `scale(${backgroundScale})` }}
         />
       </div>
 
       {/* Hero Text */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col justify-center h-full">
-        <div
-          className="absolute top-1/2 left-1/2 text-orange-400 font-extrabold w-full md:max-w-4xl lg:max-w-5xl xl:max-w-6xl"
-          style={{ zIndex: 1, transform: "translate(-50%, -50%)", textShadow: "2px 2px 8px rgba(0,0,0,0.7)" }}
-        >
-          <h1
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight leading-none opacity-80 md:text-left text-center md:text-start"
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              marginTop: "-40px",
-              transform: `translateX(-${textTranslateX}px)`,
-              transition: "transform 0.5s ease-out",
-            }}
-          >
-            Unforgettable
-          </h1>
+      <div
+  className="absolute top-1/2 left-1/2 text-orange-400 font-extrabold w-full md:max-w-4xl lg:max-w-5xl xl:max-w-6xl"
+  style={{ zIndex: 1, transform: "translate(-50%, -50%)", textShadow: "2px 2px 8px rgba(0,0,0,0.7)" }}
+>
+  <h1
+    className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] tracking-tight leading-none opacity-80 md:text-left text-center md:text-start"
+    style={{
+      fontFamily: "'Playfair Display', serif",
+      marginTop: "-40px",
+      transform: `translateX(-${textTranslateX}px)`,
+      transition: "transform 0.5s ease-out",
+    }}
+  >
+    Unforgettable
+  </h1>
 
-          <p
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-cursive mt-2 text-orange-300 text-center"
-            style={{ fontFamily: "'Dancing Script', cursive", textShadow: "1px 1px 6px rgba(0,0,0,0.5)" }}
-          >
-            travel
-          </p>
+  <p
+    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-cursive mt-2 text-orange-300 text-center"
+    style={{
+      fontFamily: "'Dancing Script', cursive",
+      textShadow: "1px 1px 6px rgba(0,0,0,0.5)"
+    }}
+  >
+    travel
+  </p>
 
-          <h2
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight leading-none mt-4 opacity-80 md:text-right text-center md:text-end"
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              transform: `translateX(${textTranslateX}px)`,
-              transition: "transform 0.5s ease-out",
-            }}
-          >
-            Experiences
-          </h2>
-        </div>
+  <h2
+    className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] tracking-tight leading-none mt-4 opacity-80 md:text-right text-center md:text-end"
+    style={{
+      fontFamily: "'Playfair Display', serif",
+      transform: `translateX(${textTranslateX}px)`,
+      transition: "transform 0.5s ease-out",
+    }}
+  >
+    Experiences
+  </h2>
+</div>
+
 
         {/* Foreground Image */}
         {foregroundImage && (
           <div
-            className="absolute bottom-0 left-1/2 h-[60%] sm:h-[70%] md:h-[80%] w-auto max-w-[60%] sm:max-w-[50%] md:max-w-[40%] lg:max-w-[30%] pointer-events-none"
+            // className="absolute bottom-0 left-1/2 h-[60%] sm:h-[70%] md:h-[80%] w-auto max-w-[60%] sm:max-w-[50%] md:max-w-[40%] lg:max-w-[30%] pointer-events-none"
+                className="absolute bottom-0 left-1/2 h-[85vh] w-auto pointer-events-none"
             style={{
               zIndex: 2,
               transform: `translateX(-50%) translateY(${foregroundTranslateY}px)`,
               filter: "drop-shadow(0px 10px 20px rgba(0,0,0,0.5))",
             }}
           >
-            <img src={foregroundImage} alt="Traveller foreground" className="h-full w-auto object-contain" />
+            <img src={foregroundImage} alt="Traveller foreground"
+            //  className="h-full w-auto object-contain"
+                  className="h-full w-auto object-contain"
+              />
           </div>
         )}
 
