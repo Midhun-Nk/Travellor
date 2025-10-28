@@ -25,42 +25,42 @@ import {
 // --- Data Arrays ---
 export const servicesData = [
   {
-    icon: Users,
+    icon: './group.png',
     title: "Group Tour Packages",
     desc: "Perfect for schools, colleges, and large family trips. We handle all the logistics."
   },
   {
-    icon: Briefcase,
+    icon: './domestic.png',
     title: "Customised Domestic Tours",
     desc: "Your trip, your way. We build a personalized itinerary just for you."
   },
   {
-    icon: Globe,
+    icon: './foreigners.png',
     title: "Foreigners Tour Packages",
     desc: "Specialized inbound tours to explore the best of India, tailored for international guests."
   },
   {
-    icon: Heart,
+    icon: './honeymoon.png',
     title: "Honeymoon Packages",
     desc: "Create unforgettable memories in romantic destinations."
   },
   {
-    icon: Hotel,
+    icon: './resort.png',
     title: "Resort & Hotel Booking",
     desc: "Get the best rates on a wide range of accommodations, from budget to luxury."
   },
   {
-    icon: Sun,
+    icon: './holiday.png',
     title: "Holiday Packages",
     desc: "All-inclusive holiday deals to popular destinations. Just pack your bags!"
   },
   {
-    icon: Star,
+    icon: './luxury.png',
     title: "Luxury Vacations",
     desc: "Experience travel in ultimate comfort and style with our premium packages."
   },
   {
-    icon: Mountain,
+    icon: './mountain.png',
     title: "Trekking & Tent Camping",
     desc: "For the adventurers. Explore nature trails and camp under the stars."
   }
