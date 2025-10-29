@@ -272,9 +272,6 @@ const LayeredHero = ({ backgroundImage, foregroundImage }) => {
     </section>
   );
 };
-// --- Destinations Section ---
-// --- Destinations Flow Section with Curvy Thread ---
-// --- Destinations Section ---
 
  const DestinationsFlow = () => {
   const destinations = [
@@ -364,7 +361,7 @@ const LayeredHero = ({ backgroundImage, foregroundImage }) => {
 // --- Services Section ---
 const Services = () => (
   <section id="services" className="bg-gray-50">
-    <div className="container  pl-15 text-center">
+    <div className="  ml-8 mt-5 text-center">
       <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20">
         {/* Text Section */}
         <div className="flex-1 text-left md:text-start">
@@ -394,13 +391,14 @@ const Services = () => (
         </div>
 
         {/* Image Section */}
-        <div className="flex-1 flex justify-end ">
-          <img
-            className="w-50 md:w-50 relative z-10 object-contain"
-            src="./h5_deco-1.png"
-            alt="Decorative graphic"
-          />
-        </div>
+    <div className="flex-1 flex justify-end">
+  <img
+    className="hidden md:block w-50 md:w-50 relative z-10 object-contain"
+    src="./h5_deco-1.png"
+    alt="Decorative graphic"
+  />
+</div>
+
       </div>
 
       {/* Service Cards */}
@@ -408,7 +406,7 @@ const Services = () => (
         {servicesData.map((service) => (
           <div
             key={service.title}
-            className="flex-shrink-0 w-72 bg-white p-8 rounded-2xl shadow-md border border-orange-100 hover:shadow-lg transition-all duration-300"
+            className="flex-shrink-0 w-78 bg-white p-8 rounded-2xl shadow-md border border-orange-100 hover:shadow-lg transition-all duration-300"
           >
             <div className="flex items-center justify-center h-20 w-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-orange-200 to-orange-300">
               <img
