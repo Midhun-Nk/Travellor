@@ -8,11 +8,11 @@ import {
 } from "lucide-react";
 
 export const Contacts = () => (
-  <section id="contact" className="py-20 md:py-28 bg-gray-900 text-gray-200">
+  <section id="contact" className="py-30 md:py-30 bg-gray-900 text-gray-200">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white pt-4">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white pt-10">
           Start Your Journey Today
         </h2>
         <p className="mt-4 text-lg md:text-xl text-gray-400">
@@ -59,13 +59,13 @@ export const Contacts = () => (
           <h3 className="text-2xl font-semibold text-orange-400">Follow Us</h3>
           <p className="text-gray-400">Stay updated with our latest offers and destinations.</p>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-orange-300 transition-colors">
+            <a href="https://youtube.com/@fine__waytravels?si=wM-9BU1dzod0nzRw" className="text-gray-400 hover:text-orange-300 transition-colors">
               <Facebook className="h-8 w-8" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-orange-300 transition-colors">
+            <a href="https://www.instagram.com/fine__way/" className="text-gray-400 hover:text-orange-300 transition-colors">
               <Instagram className="h-8 w-8" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-orange-300 transition-colors">
+            <a href="https://youtube.com/@fine__waytravels?si=wM-9BU1dzod0nzRw" className="text-gray-400 hover:text-orange-300 transition-colors">
               <Youtube className="h-8 w-8" />
             </a>
           </div>

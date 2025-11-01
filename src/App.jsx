@@ -23,6 +23,8 @@ const Header = () => {
 
   const navLinks = [
     { href: "#services", label: "Services" },
+        { href: "#destination", label: "Destinations" },
+
     { href: "#fleet", label: "Our Fleet" },
     { href: "#contact", label: "Contact" },
   ];
@@ -308,7 +310,7 @@ const LayeredHero = ({ backgroundImage, foregroundImage }) => {
   return (
     <section
       id="destinations"
-      className="relative bg-gradient-to-b from-white to-orange-50 " // taller section
+      className="relative mx-auto bg-gradient-to-b from-white to-orange-50 " // taller section
     >
       <div className=" flex flex-col align-center justify-center text-center">
          <span
@@ -326,13 +328,13 @@ const LayeredHero = ({ backgroundImage, foregroundImage }) => {
         </h2>
 
         {/* Flow section */}
-        <div className="relative flex overflow-x-auto pb-10 scrollbar-hide ">
+        <div className="relative flex mx-auto pb-10 scrollbar-hide ">
           {destinations.map((dest, index) => {
             const offset = stepHeights[index % stepHeights.length];
             return (
               <div
                 key={dest.title}
-                className="relative flex-shrink-0 w-66 h-96 mx-2 overflow-hidden  shadow-lg hover:scale-105 transition-transform duration-500"
+                className="relative  w-66 h-96 mx-2 overflow-hidden  shadow-lg hover:scale-105 transition-transform duration-500"
                 style={{
                   marginTop: `${offset}px`, // natural step instead of transform
                 }}
@@ -467,7 +469,7 @@ const Locations = () => (
           className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          Your Local Travel Partners
+          Our Travel Partners
         </h2>
 
         <p
@@ -532,88 +534,82 @@ const Fleet = () => {
     {
       title: "Bus",
       capacity: "49, 34 Seater",
-      icon: './hycross.png',
+      icon: "./bus.png",
       desc: "Spacious and comfortable buses perfect for large groups, ensuring smooth long-distance travel.",
     },
     {
       title: "Traveller",
       capacity: "10, 12, 17, 19, 26 Seater",
-      icon: './hycross.png', // Using 'Truck' as a proxy for a large van
+      icon: "./travellor.png",
       desc: "Ideal for family or group tours — enjoy comfort, air conditioning, and extra luggage space.",
     },
     {
       title: "Innova / Hycross",
-      icon: './hycross.png',
+      capacity: "7 Seater",
+      icon: "./hycross.png",
       desc: "Premium comfort and reliability for small families and executive trips.",
     },
     {
       title: "Rumion / Enjoy",
-      icon: './hycross.png',
+      capacity: "7 Seater",
+      icon: "./romio.png",
       desc: "Compact and efficient MPVs, great for city rides and family road trips.",
-    },
-    {
-      title: "Other Cars",
-      icon: './hycross.png',
-      desc: "We also provide a variety of other sedans and hatchbacks on request.",
-    },
-    {
-      title: "Your Choice",
-      icon: './hycross.png',
-      desc: "Have a specific vehicle requirement? Let us know and we will arrange it for you.",
     },
   ];
 
   return (
-    <section id="fleet" className="py-20 md:py-28 bg-white">
-           {" "}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-               {" "}
+    <section id="fleet" className="py-20 mx-auto bg-gradient-to-b from-white to-orange-50">
+      <div className=" mx-auto  text-center">
         <h2
-          className="text-4xl md:text-5xl font-extrabold text-orange-600 mb-6"
+          className="text-4xl md:text-5xl font-extrabold text-orange-600 mb-4"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-                    Our Vehicle Fleet        {" "}
+          Our Vehicle Fleet
         </h2>
-               {" "}
         <p className="text-lg md:text-xl text-gray-600 mb-12">
-                    Choose from our range of modern, well-maintained vehicles
-          for every           travel need.        {" "}
+          Choose from our range of modern, well-maintained vehicles for every travel need.
         </p>
-               {" "}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
-                   {" "}
+
+        {/* Horizontal Scroll Section */}
+        <div className="flex    pb-6 mx-auto snap-x snap-mandatory scrollbar-thin scrollbar-thumb-orange-300 scrollbar-track-orange-100">
           {fleet.map((item) => (
             <div
               key={item.title}
-              className="bg-gray-50 border border-orange-100 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="snap-start mx-auto   w-80 bg-white border border-orange-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]"
             >
-                            {/* This div replaces the <img> tag */}             {" "}
-              <div className="flex items-center justify-center h-52 bg-orange-100 text-orange-600">
-                               <img src={item.icon} alt={item.title} />             {" "}
+              {/* Image Section */}
+              <div className="relative h-56 bg-gradient-to-b from-orange-100 to-orange-200 flex items-center justify-center">
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="h-36 object-contain drop-shadow-lg transition-transform duration-500 hover:scale-105"
+                />
+                <div className="absolute bottom-2 right-3 bg-orange-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+                  {item.capacity}
+                </div>
               </div>
-                           {" "}
-              <div className="p-6">
-                               {" "}
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                                    {item.title}              F{" "}
+
+              {/* Text Content */}
+              <div className="p-6 text-left">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 flex items-center justify-between">
+                  {item.title}
+                  {/* <span className="text-orange-500 text-sm font-semibold">
+                    Capacity: {item.capacity}
+                  </span> */}
                 </h3>
-                               {" "}
-                {item.capacity && (
-                  <p className="text-orange-500 font-medium mb-3">
-                            _             {item.capacity}                 {" "}
-                  </p>
-                )}
-                                <p className="text-gray-700">{item.desc}</p>   
-                         {" "}
+                <p className="text-gray-700 leading-relaxed text-[15px]">
+                  {item.desc}
+                </p>
               </div>
-                         {" "}
             </div>
           ))}
-                 {" "}
         </div>
-             {" "}
+
+        {/* Scroll hint for mobile */}
+        <p className="text-sm text-gray-400 mt-4 md:hidden animate-pulse">
+          ← Swipe to explore more vehicles →
+        </p>
       </div>
-         {" "}
     </section>
   );
 };
