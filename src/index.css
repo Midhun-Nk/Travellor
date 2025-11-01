@@ -6,7 +6,9 @@
 
 @import "tailwindcss";
    
-        html { scroll-behavior: smooth; } /* Optional: smooth scrolling to sections */
+        html { scroll-behavior: smooth; 
+        
+        } /* Optional: smooth scrolling to sections */
      /* Hide scrollbar for all browsers */
 .scrollbar-hide {
   -ms-overflow-style: none;  /* IE and Edge */
@@ -17,4 +19,9 @@
   display: none; /* Chrome, Safari, Opera */
 }
 
+
+body{
+    overflow-x: hidden;
+
+}
 

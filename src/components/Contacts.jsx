@@ -85,7 +85,7 @@ export const Contacts = () => (
               QR for<br/>WhatsApp
             </div>
             <div className="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center text-gray-900 text-center p-2 shadow-md">
-              QR for<br/>Instagram
+              <img src="./insta_qr.png" alt="QR code for Instagram" />
             </div>
           </div>
           <p className="text-sm text-gray-500">(Replace with actual QR codes)</p>

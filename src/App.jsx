@@ -310,16 +310,16 @@ const LayeredHero = ({ backgroundImage, foregroundImage }) => {
       id="destinations"
       className="relative bg-gradient-to-b from-white to-orange-50 " // taller section
     >
-      <div className="px-6 flex flex-col align-center justify-center text-center">
+      <div className=" flex flex-col align-center justify-center text-center">
          <span
-            className="block text-3xl md:text-4xl text-orange-400 mb-3 mt-6"
+            className="px-6 block text-3xl md:text-4xl text-orange-400 mb-3 mt-6"
             style={{ fontFamily: "Mea Culpa, cursive" }}
           >
             Make it memorable
 
           </span>
         <h2
-          className="text-4xl md:text-5xl font-extrabold text-center text-black mb-12"
+          className=" text-4xl md:text-5xl font-extrabold text-center text-black mb-12"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Popular Destinations in Kerala
@@ -360,11 +360,11 @@ const LayeredHero = ({ backgroundImage, foregroundImage }) => {
 
 // --- Services Section ---
 const Services = () => (
-  <section id="services" className="bg-gray-50">
-    <div className="  ml-8 mt-5 text-center">
+  <section id="services" className="bg-gray-50 ">
+    <div className="  text-center">
       <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20">
         {/* Text Section */}
-        <div className="flex-1 text-left md:text-start">
+        <div className="flex-1 text-left md:text-start ml-10">
           <span
             className="block text-3xl md:text-4xl text-orange-400 mb-2"
             style={{ fontFamily: "Mea Culpa, cursive" }}
@@ -402,7 +402,7 @@ const Services = () => (
       </div>
 
       {/* Service Cards */}
-      <div className=" flex overflow-x-auto gap-8 pb-4  scrollbar-hide">
+      <div className=" flex overflow-x-auto gap-6 pb-4  pl-8 scrollbar-hide">
         {servicesData.map((service) => (
           <div
             key={service.title}
@@ -527,6 +527,97 @@ const Locations = () => (
   </section>
 );
 
+const Fleet = () => {
+  const fleet = [
+    {
+      title: "Bus",
+      capacity: "49, 34 Seater",
+      icon: './hycross.png',
+      desc: "Spacious and comfortable buses perfect for large groups, ensuring smooth long-distance travel.",
+    },
+    {
+      title: "Traveller",
+      capacity: "10, 12, 17, 19, 26 Seater",
+      icon: './hycross.png', // Using 'Truck' as a proxy for a large van
+      desc: "Ideal for family or group tours — enjoy comfort, air conditioning, and extra luggage space.",
+    },
+    {
+      title: "Innova / Hycross",
+      icon: './hycross.png',
+      desc: "Premium comfort and reliability for small families and executive trips.",
+    },
+    {
+      title: "Rumion / Enjoy",
+      icon: './hycross.png',
+      desc: "Compact and efficient MPVs, great for city rides and family road trips.",
+    },
+    {
+      title: "Other Cars",
+      icon: './hycross.png',
+      desc: "We also provide a variety of other sedans and hatchbacks on request.",
+    },
+    {
+      title: "Your Choice",
+      icon: './hycross.png',
+      desc: "Have a specific vehicle requirement? Let us know and we will arrange it for you.",
+    },
+  ];
+
+  return (
+    <section id="fleet" className="py-20 md:py-28 bg-white">
+           {" "}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+               {" "}
+        <h2
+          className="text-4xl md:text-5xl font-extrabold text-orange-600 mb-6"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        >
+                    Our Vehicle Fleet        {" "}
+        </h2>
+               {" "}
+        <p className="text-lg md:text-xl text-gray-600 mb-12">
+                    Choose from our range of modern, well-maintained vehicles
+          for every           travel need.        {" "}
+        </p>
+               {" "}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+                   {" "}
+          {fleet.map((item) => (
+            <div
+              key={item.title}
+              className="bg-gray-50 border border-orange-100 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+            >
+                            {/* This div replaces the <img> tag */}             {" "}
+              <div className="flex items-center justify-center h-52 bg-orange-100 text-orange-600">
+                               <img src={item.icon} alt={item.title} />             {" "}
+              </div>
+                           {" "}
+              <div className="p-6">
+                               {" "}
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                                    {item.title}              F{" "}
+                </h3>
+                               {" "}
+                {item.capacity && (
+                  <p className="text-orange-500 font-medium mb-3">
+                            _             {item.capacity}                 {" "}
+                  </p>
+                )}
+                                <p className="text-gray-700">{item.desc}</p>   
+                         {" "}
+              </div>
+                         {" "}
+            </div>
+          ))}
+                 {" "}
+        </div>
+             {" "}
+      </div>
+         {" "}
+    </section>
+  );
+};
+
 
 // --- Main App ---
 
@@ -544,8 +635,7 @@ export default function App() {
         />
         <Services />
         <DestinationsFlow />
-
-        
+        <Fleet />
         <Locations />
         <Contacts />
       </main>
