@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Footer } from "./components/Footer";
 import { Contacts } from "./components/Contacts";
 import { fleetData, servicesData } from "./components/servicesData";
@@ -16,17 +16,18 @@ import {
   Bus,
   Car,
   Truck,
+  ChevronLeft,
 } from "lucide-react";
+import DestinationsFlow from "./components/DestinationsFlow";
 // --- Header ---
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { href: "#services", label: "Services" },
-        { href: "#destination", label: "Destinations" },
-
     { href: "#fleet", label: "Our Fleet" },
     { href: "#contact", label: "Contact" },
+    { href: "#destination", label: "Destinations" },
   ];
 
   return (
@@ -275,90 +276,7 @@ const LayeredHero = ({ backgroundImage, foregroundImage }) => {
   );
 };
 
- const DestinationsFlow = () => {
-  const destinations = [
-    {
-      title: "Munnar Hills",
-      description: "Lush green hills and tea plantations.",
-      image: "./destination3.jpg",  
-    },
-    {
-      title: "Alleppey Houseboats",
-      description: "Cruise through the serene backwaters.",
-      image: "./destination1.jpg",
-    },
-    {
-      title: "Athirappilly Waterfalls",
-      description: "Majestic waterfalls amidst nature.",
-      image: "./destination4.jpg",
-    },
-    {
-      title: "Wayanad",
-      description: "Misty mountains and wildlife sanctuaries.",
-      image: "./destination2.jpg",
-    },
-    {
-      title: "Kumarakom",
-      description: "Serene backwaters and scenic resorts.",
-      image: "./destination5.jpg",
-    },
-  ];
-
-  // Step heights create a staircase: up-up-up-up-reset
-  const stepHeights = [0, 40, 80, 40, 0]; // increase this for steeper stairs
-
-  return (
-    <section
-      id="destinations"
-      className="relative mx-auto bg-gradient-to-b from-white to-orange-50 " // taller section
-    >
-      <div className=" flex flex-col align-center justify-center text-center">
-         <span
-            className="px-6 block text-3xl md:text-4xl text-orange-400 mb-3 mt-6"
-            style={{ fontFamily: "Mea Culpa, cursive" }}
-          >
-            Make it memorable
-
-          </span>
-        <h2
-          className=" text-4xl md:text-5xl font-extrabold text-center text-black mb-12"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Popular Destinations in Kerala
-        </h2>
-
-        {/* Flow section */}
-        <div className="relative flex mx-auto pb-10 scrollbar-hide ">
-          {destinations.map((dest, index) => {
-            const offset = stepHeights[index % stepHeights.length];
-            return (
-              <div
-                key={dest.title}
-                className="relative  w-66 h-96 mx-2 overflow-hidden  shadow-lg hover:scale-105 transition-transform duration-500"
-                style={{
-                  marginTop: `${offset}px`, // natural step instead of transform
-                }}
-              >
-                <img
-                  src={dest.image}
-                  alt={dest.title}
-                  className="w-full h-full object-cover brightness-75"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-0 w-full text-center px-4">
-                  <h3 className="text-xl font-bold text-white">{dest.title}</h3>
-                  <p className="text-sm text-gray-200 mt-1">{dest.description}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-
+ 
 
 // --- Services Section ---
 const Services = () => (
@@ -558,46 +476,63 @@ const Fleet = () => {
   ];
 
   return (
-    <section id="fleet" className="py-20 mx-auto bg-gradient-to-b from-white to-orange-50">
-      <div className=" mx-auto  text-center">
+    <section
+      id="fleet"
+      className="md:py-20 bg-gradient-to-b from-white to-orange-50"
+    >
+      <div className="mx-auto text-center">
+        {/* Heading */}
         <h2
-          className="text-4xl md:text-5xl font-extrabold text-orange-600 mb-4"
+          className="mt-10 text-3xl md:text-5xl font-extrabold text-orange-600 mb-4"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Our Vehicle Fleet
         </h2>
-        <p className="text-lg md:text-xl text-gray-600 mb-12">
+        <p className="text-base md:text-xl text-gray-600 mb-10">
           Choose from our range of modern, well-maintained vehicles for every travel need.
         </p>
 
         {/* Horizontal Scroll Section */}
-        <div className="flex    pb-6 mx-auto snap-x snap-mandatory scrollbar-thin scrollbar-thumb-orange-300 scrollbar-track-orange-100">
+        <div
+          className="
+            flex gap-6 md:gap-8 
+            overflow-x-auto overflow-y-hidden 
+            scrollbar-thin scrollbar-thumb-orange-400 scrollbar-track-orange-100
+            snap-x snap-mandatory
+            pb-6 px-4  md:px-10
+             md:mx-0
+          "
+        >
           {fleet.map((item) => (
             <div
               key={item.title}
-              className="snap-start mx-auto   w-80 bg-white border border-orange-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]"
+              className="
+                snap-start flex-shrink-0
+                w-64 sm:w-72 md:w-80
+                bg-white border border-orange-100 rounded-3xl
+                overflow-hidden shadow-lg hover:shadow-2xl
+                transition-all duration-500
+                transform hover:-translate-y-2 hover:scale-[1.02]
+              "
             >
-              {/* Image Section */}
-              <div className="relative h-56 bg-gradient-to-b from-orange-100 to-orange-200 flex items-center justify-center">
+              {/* Image */}
+              <div className="relative h-44 md:h-56 bg-gradient-to-b from-orange-100 to-orange-200 flex items-center justify-center">
                 <img
                   src={item.icon}
                   alt={item.title}
-                  className="h-36 object-contain drop-shadow-lg transition-transform duration-500 hover:scale-105"
+                  className="h-28 md:h-36 object-contain drop-shadow-lg transition-transform duration-500 hover:scale-105"
                 />
-                <div className="absolute bottom-2 right-3 bg-orange-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+                <div className="absolute bottom-2 right-3 bg-orange-600 text-white text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow-md">
                   {item.capacity}
                 </div>
               </div>
 
-              {/* Text Content */}
-              <div className="p-6 text-left">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 flex items-center justify-between">
+              {/* Text */}
+              <div className="p-5 md:p-6 text-left">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                   {item.title}
-                  {/* <span className="text-orange-500 text-sm font-semibold">
-                    Capacity: {item.capacity}
-                  </span> */}
                 </h3>
-                <p className="text-gray-700 leading-relaxed text-[15px]">
+                <p className="text-gray-700 leading-relaxed text-sm md:text-base">
                   {item.desc}
                 </p>
               </div>
@@ -605,7 +540,7 @@ const Fleet = () => {
           ))}
         </div>
 
-        {/* Scroll hint for mobile */}
+        {/* Scroll hint (mobile only) */}
         <p className="text-sm text-gray-400 mt-4 md:hidden animate-pulse">
           ← Swipe to explore more vehicles →
         </p>
@@ -613,6 +548,8 @@ const Fleet = () => {
     </section>
   );
 };
+
+
 
 
 // --- Main App ---

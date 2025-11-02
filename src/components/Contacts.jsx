@@ -70,9 +70,9 @@ export const Contacts = () => (
             </a>
           </div>
           <div className="text-sm text-gray-400 space-y-1">
-            <p>Facebook: <span className="text-white">Fine Way Travels</span></p>
-            <p>Instagram: <span className="text-white">@fine_way</span></p>
-            <p>YouTube: <span className="text-white">@fine-waytravels</span></p>
+            <p>Facebook: <span className="text-white">Fine-way-Travels</span></p>
+            <p>Instagram: <span className="text-white">@fine__way</span></p>
+            <p>YouTube: <span className="text-white">@fine__waytravels</span></p>
           </div>
         </div>
 
@@ -81,10 +81,10 @@ export const Contacts = () => (
           <h3 className="text-2xl font-semibold text-orange-400">Scan to Connect</h3>
           <p className="text-gray-400">Quickly connect via WhatsApp or follow Instagram.</p>
           <div className="flex space-x-4">
-            <div className="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center text-gray-900 text-center p-2 shadow-md">
-              QR for<br/>WhatsApp
+            <div className="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center text-gray-900 text-center p-0 shadow-md">
+               <img src="./whatspp_qr.png" alt="QR code for WhatsApp" />
             </div>
-            <div className="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center text-gray-900 text-center p-2 shadow-md">
+            <div className="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center text-gray-900 text-center p-0 shadow-md">
               <img src="./insta_qr.png" alt="QR code for Instagram" />
             </div>
           </div>
